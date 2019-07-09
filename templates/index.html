@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Great Number Game</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <style>
+        .res{
+        	{% if session['response'] != 'Correct!' %}
+        		background-color: red;
+        	{% else %}
+        		background-color: green;
+        	{% endif %}
+        }
+    	</style>
+    </head>
+    <body>
+    	<h3>This is the random number {{ num }}</h3>
+    	{% if 'guess' in session %}
+    		<h3>Our guess is {{ session['guess'] }}</h3>
+    		<div class='res'>Response: {{ session['response'] }} </div>
+    	{% endif %}
+    	<!-- Indent Rainbow for V.S. Code -->
+        <!-- 1) X - styling when too high or too low -->
+        <!-- 2) X - utilization of session -->
+        <!-- 3) X - how to hide or show certain info or divs -->
+        <!-- 4) demo how to retain random number -->
+        <!-- 5) X - if statements -->
+    <form action='/guess' method='post'>
+    	Guess: <input type='number' name='guess'>
+    	<input type='submit' value='submit'>
+	</form>
+
+    </body>
+</html>
